@@ -21,8 +21,4 @@
     </div>
 </div> -->
 
-<p>aaaaaaaaaa</p>
-<p>WOIII</p>
-<p>aaaaaaaaaa</p>
-
 @endsection
