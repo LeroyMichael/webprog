@@ -12,13 +12,47 @@ class flowersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('flowerscategories')->insert([
+        DB::table('flowers')->insert([
             'flowercategories' => "Romantic Flower",
             'flowername' => "Be My Lady",
-            'flowerprice' => "Rp. 1.200.000",
-            'flowerdescription' => "You will forever be my always Red and Pink with touch of purple create this beautiful fleurs box. (Diametre 25cm)",
+            'flowerprice' => "1200000",
+            'flowerdescription' => "You will forever be my always",
             'flowerphoto' => "be my lady.jpg"
         ]);
-
+        DB::table('flowers')->insert([
+            'flowercategories' => "Romantic Flower",
+            'flowername' => "Floral Fantasy",
+            'flowerprice' => "1300000",
+            'flowerdescription' => "Hampers are a perfect gift for any occasion and with the wide selection",
+            'flowerphoto' => "Floral Fantasy.jpg"
+        ]);
+        DB::table('flowers')->insert([
+            'flowercategories' => "Romantic Flower",
+            'flowername' => "Hazel Eyes",
+            'flowerprice' => "1100000",
+            'flowerdescription' => "Combination of vibrant and soft color create this perfect look ",
+            'flowerphoto' => "be my lady.jpg"
+        ]);
+        DB::table('flowers')->insert([
+            'flowercategories' => "Romantic Flower",
+            'flowername' => "Klynn",
+            'flowerprice' => "1200000",
+            'flowerdescription' => "The perfect combination of Blue and Purple create this unusual romantic look",
+            'flowerphoto' => "klynn.jpg"
+        ]);
+        DB::table('flowers')->insert([
+            'flowercategories' => "Romantic Flower",
+            'flowername' => "Klynn",
+            'flowerprice' => "1200000",
+            'flowerdescription' => "The perfect combination of Blue and Purple create this unusual romantic look",
+            'flowerphoto' => "klynn.jpg"
+        ]);
+        DB::table('flowers')->insert([
+            'flowercategories' => "Romantic Flower",
+            'flowername' => "Klynn",
+            'flowerprice' => "1200000",
+            'flowerdescription' => "The perfect combination of Blue and Purple create this unusual romantic look",
+            'flowerphoto' => "klynn.jpg"
+        ]);
     }
 }
