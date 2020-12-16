@@ -17,6 +17,10 @@ class flowerscategoriesSeeder extends Seeder
         ]);
 
         DB::table('flowerscategories')->insert([
+            'flowercategoryname' => "Valentine Flower"
+        ]);
+        
+        DB::table('flowerscategories')->insert([
             'flowercategoryname' => "Birthday Flower"
         ]);
 
@@ -24,8 +28,6 @@ class flowerscategoriesSeeder extends Seeder
             'flowercategoryname' => "Graduation Flower"
         ]);
 
-        DB::table('flowerscategories')->insert([
-            'flowercategoryname' => "Valentine Flower"
-        ]);
+      
     }
 }
