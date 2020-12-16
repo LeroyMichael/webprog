@@ -20,27 +20,14 @@
         </div>
     </div>
 </div> -->
-<p>home page</p>
-
 @foreach ($flowers as $item)
-<table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">{{$item->id}}</th>
-        <td>{{$item->name}}</td>
-        <td>{{$item->price}}</td>
-        <td>{{$item->desc}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{$item->flowerphoto}}" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-text">{{$item->flowername}}</h3>
+    </div>
+</div>
+
 
 @endforeach
 @endsection
