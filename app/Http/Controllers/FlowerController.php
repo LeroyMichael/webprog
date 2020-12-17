@@ -9,7 +9,8 @@ class FlowerController extends Controller
     public function home(){
         // $type = DB::all();
         $flower = DB::table('flowers')->get();
-        return view('home',['flowers'=>$flower]);
+        $fcategories = DB::table('flowerscategories')->get();
+        return view('home',['flowers'=>$flower,'fcategories'=>$fcategories]);
     }
 
 }
