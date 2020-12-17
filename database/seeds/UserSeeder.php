@@ -18,5 +18,11 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'admin',
         ]);
+        DB::table('users')->insert([
+            'name' => 'test',
+            'email' => 'test@flowelto.com',
+            'password' => Hash::make('password'),
+            'role' => 'customer',
+        ]);
     }
 }
