@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>hai anjengg</h1>
+
 <div class="container">
         <h1 class="display-4 font-italic text-center">Welcome to Flowelto Shop</h1>
         <p class="lead my-3 text-center">The Best Flower Shop in Binus University</p>
