@@ -1,14 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+<p>anjing</p>
 <div class="container">
+        <h1 class="display-4 font-italic text-center">Welcome to Flowelto Shop</h1>
+        <p class="lead my-3 text-center">The Best Flower Shop in Binus University</p>
+
     <div class="card-group">
         @foreach ($fcategories as $category)
             <div class="card">
                 <a href="">
                     <img class="card-img" src="{{$category->flowercategoryphoto}}" alt="Card image">
                 </a>
-                
+                <div class="content">
+                    <h1>{{$category->flowercategoryname}}</h1>
+                </div>
             </div>
       @endforeach
     </div>

@@ -20,9 +20,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
-<body style="background-color: pink">
+<body style="background-color: #ffcad4">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-pink shadow-sm" style="background-color:palevioletred">
+        <nav class="navbar navbar-expand-md navbar-light bg-pink shadow-sm" style="background-color:#f4acb7">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Flowelto Shop
@@ -41,6 +41,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                        
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
