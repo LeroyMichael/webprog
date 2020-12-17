@@ -13,19 +13,23 @@ class flowerscategoriesSeeder extends Seeder
     public function run()
     {
         DB::table('flowerscategories')->insert([
-            'flowercategoryname' => "Romantic Flower"
+            'flowercategoryname' => "Romantic Flower",
+            'flowercategoryphoto' => "romance.jpg"
         ]);
 
         DB::table('flowerscategories')->insert([
-            'flowercategoryname' => "Valentine Flower"
+            'flowercategoryname' => "Valentine Flower",
+            'flowercategoryphoto' => "valentine.jpg"
         ]);
         
         DB::table('flowerscategories')->insert([
-            'flowercategoryname' => "Birthday Flower"
+            'flowercategoryname' => "Birthday Flower",
+            'flowercategoryphoto' => "birthday.jpg"
         ]);
 
         DB::table('flowerscategories')->insert([
-            'flowercategoryname' => "Graduation Flower"
+            'flowercategoryname' => "Graduation Flower",
+            'flowercategoryphoto' => "graduation.jpg"
         ]);
 
       
