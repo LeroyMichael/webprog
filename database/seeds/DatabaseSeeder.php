@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             flowerscategoriesSeeder::class,
             flowersSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

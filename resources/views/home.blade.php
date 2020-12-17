@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     @foreach ($fcategories as $category)
         
     @foreach ($flowers as $item)
@@ -15,7 +15,7 @@
     </div>
 
     @endforeach
-</div>
+</div> --}}
 <!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
