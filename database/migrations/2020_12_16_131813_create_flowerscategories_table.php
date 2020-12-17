@@ -16,6 +16,7 @@ class CreateFlowerscategoriesTable extends Migration
         Schema::create('flowerscategories', function (Blueprint $table) {
             $table->id();
             $table->string('flowercategoryname');
+            $table->string('flowercategoryphoto');
             $table->timestamps();
         });
     }
