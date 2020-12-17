@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@flowelto.com',
             'password' => Hash::make('password'),
-            'role' => 'Admin',
+            'role' => 'admin',
         ]);
     }
 }
