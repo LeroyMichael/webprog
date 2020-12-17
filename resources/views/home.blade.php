@@ -1,20 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div class="container">
-    @foreach ($fcategories as $category)
-        
-    @foreach ($flowers as $item)
-        
-    @endforeach
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{$flowers->flowerphoto}}" alt="Card image cap">
-        <div class="card-body">
-          <h3 class="card-text">{{$category->flowercategoryname}}</h3>
-        </div>
+<div class="container">
+    <div class="card-group">
+        @foreach ($fcategories as $category)
+            <div class="card">
+                <a href="">
+                    <img class="card-img" src="{{$category->flowercategoryphoto}}" alt="Card image">
+                </a>
+                
+            </div>
+      @endforeach
     </div>
+</div>
 
+{{-- <div class="container-genre">
+    @foreach ($fcategories as $category)
+        <div class="card">
+            <img src="{{$category->flowercategoryphoto}}" alt="">
+            <div class="content">
+                <h1>{{$category->flowercategoryname}}</h1>
+            </div>
+        </div>
     @endforeach
+</div> --}}
+
+{{-- <div class="container">
+    <div class="card-group">
+        @foreach ($fcategories as $category)
+        
+        <div class="card m-3" style="width: 18rem;">
+            <img class="card-img-top" src="{{$category->flowercategoryphoto}}" alt="Card image cap">
+            <div class="card-body content">
+              <h3 class="card-text title">{{$category->flowercategoryname}}</h3>
+            </div>
+        </div>
+    
+        @endforeach
+    </div>
+    
 </div> --}}
 <!-- <div class="container">
     <div class="row justify-content-center">
