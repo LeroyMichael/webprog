@@ -16,11 +16,10 @@ class CreateFlowersTable extends Migration
         Schema::create('flowers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('categories_id');
-            $table->string('flowercategories');
             $table->string('flowername');
             $table->integer('flowerprice');
             $table->string('flowerdescription');
-            $table->string('flowerphoto');
+            $table->string('flowerphoto')->nullable();
             $table->foreign('categories_id')->references('id')->on('flowerscategories');
             $table->timestamps();
         });
