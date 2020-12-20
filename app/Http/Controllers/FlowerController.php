@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Flowers;
 use App\Cart;
+use App\Transaction;
 use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Flowerscategories;
@@ -144,17 +145,42 @@ class FlowerController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
+        // dd($cart->flowers);
         return view('mycart',['flowers'=>$cart->flowers, 'tPrice'=>$cart->tPrice]);
     }
     public function addtocart(Request $request, $id){
+        $this->validate($request, [
+            'qty' => 'required|min:1',
+        ]);
         $flower = Flowers::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($flower, $flower->id);
+        $cart->add($flower, $flower->id, $request['qty']);
         $request->session()->put('cart',$cart);
+        
         // dd($request->session()->get('cart'));
         return back()->with('success','Flower Added to Cart!');
     }
+    public function updateCart(Request $request, $id){
+        
+        $flower = Flowers::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        // $cart = Session::get('cart');
+        if($request['qty']==0){
+            $request->session()->forget('price');
+            // dd($oldCart);
+            return back()->with('success','Flower Added to Cart!');
+        }else{
+            
+        $cart = new Cart($oldCart);
+        
+        $cart->update($flower, $flower->id, $request['qty']);
+        $request->session()->put('cart',$cart);
+        
+        return back()->with('success','Flower Added to Cart!');
+        }
+    }
+
     public function change(){
         
         return view('change');
@@ -176,5 +202,31 @@ class FlowerController extends Controller
         // $data->save();
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password_new)]);
         return back()->with('message','Password Changed!');
+    }
+    public function checkout()
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+
+        $transaction = new Transaction();
+        $transaction->cart = serialize($cart);
+        $transaction->user_id = Auth::user()->id;
+        // dd($transaction);
+        $transaction->save();
+        Session::forget('cart');
+        return back()->with('message','Transaction Success!');
+    }
+    public function transaction()
+    {
+        $transaction = Transaction::all();
+        return view('transaction',['transaction'=>$transaction]);
+    }
+    public function transactionDetail($id)
+    {
+        $transaction = Transaction::find($id);
+        $cart = unserialize($transaction->cart);
+        $flower = $cart->flowers;
+        // dd($cart->tPrice);
+        return view('transactiondetail',['transaction'=>$transaction,'flower'=>$flower,'cart'=>$cart]);
     }
 }

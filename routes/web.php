@@ -24,8 +24,6 @@ Route::get('/', 'FlowerController@home');
 Route::get('/product/{id}','FlowerController@product');//product page
 Route::get('/detail/{id}','FlowerController@detail');//detail page
 Route::get('/search/{id}','FlowerController@search');//search page
-Route::post('/addtocart/{id}','FlowerController@addtocart');//addtocart
-Route::get('/mycart','FlowerController@mycart');//My Cart page
 
 //Admin
 Route::group(['middleware' => ['admin','auth']], function () {
@@ -50,4 +48,11 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::get('/change','FlowerController@change');//change password page
     Route::post('/change-password','FlowerController@changePassword');//change password function
+        
+    Route::post('/addtocart/{id}','FlowerController@addtocart');//addtocart
+    Route::get('/mycart','FlowerController@mycart');//My Cart page
+    Route::post('/update-cart/{id}','FlowerController@updateCart');//My Cart page
+    Route::get('/checkout','FlowerController@checkout');//My Cart page
+    Route::get('/transaction','FlowerController@transaction');//Transaction history page
+    Route::get('/transaction-detail/{id}','FlowerController@transactionDetail');//Transaction detail history page
 });

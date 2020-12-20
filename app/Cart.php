@@ -16,7 +16,7 @@ class Cart
             $this->tPrice = $oldCart->tPrice;
         }
     }
-    public function add($flower, $id){
+    public function add($flower, $id, $qty){
         $storedFlower = ['qty' => 0,'price' => $flower->flowerprice, 'flower' => $flower];
         if($this->flowers){
             if(array_key_exists($id, $this->flowers)){
@@ -25,7 +25,22 @@ class Cart
 
         }
 
-        $storedFlower['qty']++;
+        $storedFlower['qty']+=$qty;
+        $storedFlower['price'] = $storedFlower['qty'] *$flower->flowerprice;
+        $this->flowers[$id] = $storedFlower;
+        $this->tQty++;
+        $this->tPrice = $this->tPrice + $flower->flowerprice;
+    }
+    public function update($flower, $id, $qty){
+        $storedFlower = ['qty' => 0,'price' => $flower->flowerprice, 'flower' => $flower];
+        if($this->flowers){
+            if(array_key_exists($id, $this->flowers)){
+                $storedFlower = $this->flowers[$id];
+            }
+
+        }
+
+        $storedFlower['qty']=$qty;
         $storedFlower['price'] = $storedFlower['qty'] *$flower->flowerprice;
         $this->flowers[$id] = $storedFlower;
         $this->tQty++;

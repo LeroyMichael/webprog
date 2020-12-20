@@ -25,7 +25,7 @@
         
         @if (Auth::user()->role != 'admin')
         <form action="/addtocart/{{$item->id}}" method="post"enctype="multipart/form-data" >
-          @csrf
+        @csrf
             <div class="table-responsive mb-2">
             <table class="table table-sm table-borderless">
                 <tbody>
@@ -37,9 +37,14 @@
                     <div class="form-group mb-0">
                         <button type="button" class="btn btn-primary" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                         >-</button>
-                        <input class="col-xs-3" min="0" name="qty" value="1" type="number">
+                        <input class="col-xs-3 @error('qty') is-invalid @enderror" min="1" name="qty" value="1" type="number" required>
                         <button type="button" class="btn btn-primary" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                         >+</button>
+                        @error('qty')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
                     </td>
                 </tr>

@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         View()->composer(
-            ['auth.login', 'auth.register','home','admin','product','detail','update','add','change','mycart'],function($view){
+            ['auth.login', 'auth.register','home','admin','product','detail','update','add','change','mycart','transaction','transactiondetail'],function($view){
                 $view->with('fcategories', Flowerscategories::all());
             }
         );

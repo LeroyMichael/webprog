@@ -84,7 +84,7 @@
                                         onclick="">
                                         My Cart
                                         </a>
-                                        <a class="dropdown-item" href="{{ url('/history') }}"
+                                        <a class="dropdown-item" href="{{ url('/transaction') }}"
                                         onclick="">
                                         Transaction History
                                         </a>
