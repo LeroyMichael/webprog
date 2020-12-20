@@ -20,7 +20,8 @@ class CreateFlowersTable extends Migration
             $table->integer('flowerprice');
             $table->string('flowerdescription');
             $table->string('flowerphoto')->nullable();
-            $table->foreign('categories_id')->references('id')->on('flowerscategories');
+            $table->foreign('categories_id')->references('id')->on('flowerscategories')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

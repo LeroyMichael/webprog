@@ -6,17 +6,18 @@
         <h1 class="display-4 font-italic text-center">Welcome to Flowelto Shop</h1>
         <p class="lead my-3 text-center">The Best Flower Shop in Binus University</p>
 
-    <div class="card-group">
+    <div class="card-group justify-content-center" >
         @foreach ($fcategories as $category)
-            <div class="card">
-                <a href="">
-                    <img class="card-img" src="{{$category->flowercategoryphoto}}" alt="Card image">
-                </a>
-                <div class="content">
-                    <h1>{{$category->flowercategoryname}}</h1>
+        <a class="m-3" href="/product/{{$category->id}}">
+            <div class="card text-center m-3" style="width: 20rem;">
+                <img class="card-img-top" src="storage/images/{{$category->flowercategoryphoto }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">{{$category->flowercategoryname}}</p>
                 </div>
-            </div>
-      @endforeach
+              </div>
+        </a>
+        @endforeach
+        
     </div>
 </div>
 

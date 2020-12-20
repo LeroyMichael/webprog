@@ -40,8 +40,20 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('Categories') }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @foreach($fcategories as $category)
+                                    <a class="dropdown-item" href="{{{url('/product/'.$category->id)}}}">{{$category->flowercategoryname}}</a>
+                                @endforeach
+                            </div>
+                            
+                        </li>
                         
+                        @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -57,10 +69,35 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                     @if (Auth::user()->role == 'admin')
+                                        <a class="dropdown-item" href="{{ url('/add') }}"
+                                        onclick="">
+                                        Add Flower
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('/admin') }}"
+                                        onclick="">
+                                        Manage Categories
+                                        </a>
+                                    @endif
+                                    @if (Auth::user()->role == 'customer')
+                                        <a class="dropdown-item" href="{{ url('/mycart') }}"
+                                        onclick="">
+                                        My Cart
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('/history') }}"
+                                        onclick="">
+                                        Transaction History
+                                        </a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ url('/change') }}"
+                                       onclick="">
+                                        Change Password
+                                    </a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -69,6 +106,9 @@
                                 </div>
                             </li>
                         @endguest
+                        <li class="nav-item">
+                            <p class="nav-link time">{{ date('l, j F Y')}}</p>
+                        </li>
                     </ul>
                 </div>
             </div>
